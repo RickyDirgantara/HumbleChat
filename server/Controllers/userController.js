@@ -9,6 +9,18 @@ const createToken = (_id) => {
     return jwt.sign({_id}, jwtkey, {expiresIn: "3d"});
 }
 
+const findUser = async (req, res) => {
+    const userId = req.params.userId;
+  
+    try {
+      const user = await userModel.findById(userId);
+  
+      res.status(200).json(user);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  };
+
 const registerUser = async (req, res) => {
 
 
@@ -82,4 +94,4 @@ const getUsers = async(req, res) => {
 };
 
 
-module.exports = {registerUser, loginUser, getUsers};
+module.exports = {registerUser, loginUser, getUsers, findUser};
