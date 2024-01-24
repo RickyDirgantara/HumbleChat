@@ -94,6 +94,7 @@ const updateLoginInfo = useCallback ((info) =>{
 
     return (<AuthContext.Provider value ={{
         user,
+        setUser,
         registerInfo,
         updateRegisterInfo,
         registerUser,
